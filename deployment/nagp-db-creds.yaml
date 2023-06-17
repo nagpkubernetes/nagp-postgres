@@ -1,0 +1,9 @@
+#K8s Secret Creds
+apiVersion: v1
+kind: Secret
+metadata:
+  name: nagp-db-creds
+type: Opaque
+data:
+  username: cG9zdGdyZQ==
+  password: TV9lSXU2RGcjejBXNiRDRTRmZkhwZ05Hb198LQ==

@@ -1,0 +1,7 @@
+#K8s Config Map Creds
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nagp-postgres-config
+data:
+  DATABASE_URI: jdbc:postgresql://postgre-nagp.cxmhypvuyhgy.ap-south-1.rds.amazonaws.com/nagp-npl-db?currentSchema=npl-schema

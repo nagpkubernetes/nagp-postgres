@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "npl_teams")
+@org.hibernate.annotations.DynamicUpdate
 public class NPLTeam {
 	
 	@Id

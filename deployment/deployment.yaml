@@ -1,0 +1,42 @@
+#nagp-postgres-deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nagp-postgres-deployment
+  namespace: default
+  labels:
+    app: nagp-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nagp-postgres
+  template:
+    metadata:
+      labels:
+        app: nagp-postgres
+    spec:
+      containers:
+        - name: nagp-postgres
+          image: grvsharma2405/nagp-postgres:latest
+          env:
+            - name: DATABASE_URI
+              valueFrom:
+                configMapKeyRef:
+                 name: nagp-postgres-config
+                 key: DATABASE_URI
+            - name: username
+              valueFrom:
+                secretKeyRef:
+                  name: nagp-db-creds
+                  key: username
+
+            - name: password
+              valueFrom:
+                secretKeyRef:
+                  name: nagp-db-creds
+                  key: password     
+
+          ports:
+            - containerPort: 8081
+

@@ -9,5 +9,4 @@ public class NagpPostgresApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NagpPostgresApplication.class, args);
 	}
-
 }
